@@ -5,8 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notepad Project</title>
+    <script src="https://kit.fontawesome.com/a550b19c0c.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body onload="enableEditMode();">
+    <div>
+        <button onclick="execCmd('bold');"><i class="fas fa-bold"></i></button>
+    </div>
+    <iframe name="richTextField" style="width: 1000px; height:500px;"></iframe>
+    <script type="text/javascript">
+
+        function enableEditMode (){ 
+            richTextField.document.designMode = 'On';
+        }
+
+        function execCmd(command) {
+            richTextField.document.execCommand(command, false, null);
+        }
+
+    </script>
+
     
 </body>
 </html>

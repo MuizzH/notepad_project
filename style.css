@@ -8,6 +8,10 @@ h1 {
     text-align: center;
 }
 
+h1:hover {
+    color: rgb(155, 55, 155);
+}
+
 p {
     font-size: 25px;
     text-align: center;
@@ -19,6 +23,7 @@ p {
 
 button, option, select {
     font-size: 25px;
+    margin: 3px;
 }
 
 iframe{
@@ -29,23 +34,24 @@ iframe{
     padding: 10px;
     display: block;
     background-color: white;
+    box-shadow: 3px 3px rgba(174, 0, 255, 0.521), -1em 0 .4em rgba(255, 44, 192, 0.397);
 }
 
 /*Footer*/
 
 .footer p{
-    font-size: 18px;
+    font-size: 20px;
     text-align: center;
     padding: 10px;
 }
 
 /*save*/
-#save{
+#save {
     margin: auto;
     border: 2px solid #000000;
     display: block;
     background-color: rgba(60, 145, 139, 0.623);
-    padding: 20px 50px;
+    padding: 10px 50px;
     border-radius: 30px;
     border: 0;
     color: rgb(0, 0, 0);
@@ -66,3 +72,17 @@ iframe{
     box-shadow: 0 30px 30px -20px rgba(0,0,0,0.4);
     transform: translateY(5px);
   }
+
+  #clear {
+    margin: auto;
+    border: 2px solid #000000;
+    display: block;
+    background-color: rgba(60, 145, 139, 0.623);
+    padding: 10px 50px;
+    border-radius: 30px;
+    border: 0;
+    color: rgb(0, 0, 0);
+    transition: all 150ms ease;
+    cursor: pointer;
+    box-shadow: 0 30px 30px -20px rgb(0, 0, 0);
+}

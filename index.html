@@ -24,12 +24,12 @@
         <button onclick="execCmd('copy');"><i class="fas fa-copy"></i></button>
         
         <select onchange="execCommandWithArg('formatBlock', this.value);">
-            <option value="H1">H1</option>
-            <option value="H2">H2</option>
-            <option value="H3">H3</option>
-            <option value="H4">H4</option>
-            <option value="H5">H5</option>
-            <option value="H6">H6</option>
+            <option value="H1">Heading 1</option>
+            <option value="H2">Heading 2</option>
+            <option value="H3">Heading 3</option>
+            <option value="H4">Heading 4</option>
+            <option value="H5">Heading 5</option>
+            <option value="H6">Heading 6</option>
         </select>
 
         <button onclick="execCmd('insertHorizontalRule');">HR</i></button>
@@ -68,8 +68,8 @@
 <br>
 
     <iframe name="richTextField"></iframe>
+    <br>
     
-    <button id="save" alt="Save" title="Save" onclick="saveButton(this)">Save</button>
 
     <span id="count-words"></span>
 
@@ -109,6 +109,11 @@
                 isInEditMode = true;
             }
         }
+
+        function clear() {
+            document.getElementById('richTextField').value = "";
+        }
+
     </script>
 
 <div class = "footer">

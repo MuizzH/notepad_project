@@ -20,8 +20,6 @@
         <button onclick="execCmd('justifyLeft');"><i class="fas fa-align-left"></i></button>
         <button onclick="execCmd('justifyCenter');"><i class="fas fa-align-center"></i></button>
         <button onclick="execCmd('justifyRight');"><i class="fas fa-align-right"></i></button>
-        <button onclick="execCmd('cut');"><i class="fas fa-cut"></i></button>
-        <button onclick="execCmd('copy');"><i class="fas fa-copy"></i></button>
         
         <select onchange="execCommandWithArg('formatBlock', this.value);">
             <option value="H1">Heading 1</option>
@@ -32,7 +30,7 @@
             <option value="H6">Heading 6</option>
         </select>
 
-        <button onclick="execCmd('insertHorizontalRule');">HR</i></button>
+        <button onclick="execCmd('insertHorizontalRule');">Horizontal Line</i></button>
         <button onclick="execCmd('createLink', prompt('Enter a URL', 'http://'));"><i class="fa fa-link"></i></button>
         <button onclick="execCmd('unlick');"><i class="fa fa-unlink"></i></button>
         <button onclick="toggleSource();"><i class="fa fa-code"></i></button>
@@ -67,10 +65,11 @@
 
 <br>
 
-    <iframe name="richTextField"></iframe>
+    <iframe id="textArea" name="richTextField"></iframe>
     <br>
     
-    <button id="save">Save</button>
+    <button id="save" onclick="save()">Save</button>
+    <button id="clear" onclick="clearbtn()">Clear</button>
 
 
     <span id="count-words"></span>
@@ -111,7 +110,53 @@
                 isInEditMode = true;
             }
         }
+
+        //save
+        function check_web_storage_support() {
+            if(typeof(Storage) !== "undefined") {
+        return(true);
+        }
+            else {
+        alert("Web storage unsupported!");
+        return(false);
+            }
+        }
+
+        function display_saved_note() {
+            if(check_web_storage_support() == true) {
+        result = localStorage.getItem('note');
+        }
+        if(result === null) {
+        result = "No note saved";
+        }
+        document.getElementById('textArea').contentWindow.document.body.innerHTML = result;
+        }
     
+
+        function save() {
+            if(check_web_storage_support() == true) {
+
+        var area = document.getElementById("textArea");
+        var content = area.contentWindow.document.body.innerHTML;
+
+            if(content != '') {
+                localStorage.setItem("note", content);
+                console.log(content);
+        }
+            else {
+                alert("Nothing to save");
+                    }
+                }
+            }
+
+            display_saved_note();
+
+            function clearbtn() {
+                document.getElementById('textArea').contentWindow.document.body.innerHTML = "";
+                
+            }
+
+
     </script>
 
 </body>
